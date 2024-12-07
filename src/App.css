@@ -1,38 +1,203 @@
-.App {
-  text-align: center;
+.chat-room-header {
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  color: white;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header-icon {
+  color: white;
+  animation: bounce 1.5s infinite;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.chat-room {
+  background-color: #f4f4f4;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+.chat-room-content {
+  flex-grow: 1; /* Content takes available space */
+  margin-top: 20px;
+}
+
+.fixed-form-container {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 10;
+  background-color: #ffffff;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Smooth fade-in animation for the message container */
+.animated-card {
+  animation: fadeIn 1s ease-in-out;
+}
+
+.animated-scroll {
+  animation: slideIn 1s ease-in-out;
+}
+
+/* Keyframes for animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Message styles */
+.message {
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 8px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.message:hover {
+  transform: scale(1.02);
+  opacity: 0.9;
+}
+
+.message-user {
+  background-color: #007bff;
+  color: white;
+  text-align: left;
+}
+
+.message-other {
+  background-color: #e9ecef;
+  color: #212529;
+  text-align: left;
+}
+
+
+.header-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.header-subtitle {
+  font-size: 1rem;
+  font-weight: 300;
+  margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .header-title {
+    font-size: 1.5rem;
+  }
+  .header-subtitle {
+    font-size: 0.9rem;
+  }
+}
+
+/* Bounce animation for the icon */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Waiting Room Container */
+.waiting-room {
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  min-height: 100vh;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* Card Styling */
+.waiting-room-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  animation: fadeIn 1.5s ease-in-out;
 }
 
-@keyframes App-logo-spin {
+/* Icon Styling */
+.chat-icon {
+  color: #6a11cb;
+  animation: bounce 2s infinite;
+}
+
+/* Button Styling */
+.join-btn {
+  background: linear-gradient(135deg, #43e97b, #38f9d7);
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.join-btn:disabled {
+  background: gray;
+  cursor: not-allowed;
+}
+
+.join-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Input Styling */
+.form-input {
+  border: 2px solid #6a11cb;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-input:focus {
+  border-color: #38f9d7;
+  box-shadow: 0 0 5px #38f9d7;
+}
+
+/* Animations */
+@keyframes fadeIn {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(10px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
   }
 }
